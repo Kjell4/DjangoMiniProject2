@@ -1,0 +1,36 @@
+INFO 2024-11-16 22:50:14,970 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 22:52:41,376 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\users\apps.py changed, reloading.
+INFO 2024-11-16 22:52:42,085 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 22:57:54,016 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\celery.py changed, reloading.
+INFO 2024-11-16 22:57:54,662 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 22:58:03,373 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\__init__.py changed, reloading.
+INFO 2024-11-16 22:58:04,117 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 22:58:26,350 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-16 22:58:26,998 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 22:58:31,531 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-16 22:58:32,356 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 22:58:34,827 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-16 22:58:35,495 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 22:58:37,970 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-16 22:58:38,641 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 22:58:43,176 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-16 22:58:43,814 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:00:08,391 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:00:24,818 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:00:53,423 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-16 23:01:48,764 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:40:06,583 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-16 23:40:12,429 basehttp "GET / HTTP/1.1" 404 2391
+WARNING 2024-11-16 23:40:17,372 basehttp "GET /auth/users/ HTTP/1.1" 401 9569
+WARNING 2024-11-16 23:40:25,240 basehttp "GET /auth/sd HTTP/1.1" 404 8123
+INFO 2024-11-16 23:42:23,029 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:42:37,025 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-16 23:42:37,889 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:42:43,389 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-16 23:42:44,092 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:42:56,876 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-16 23:42:57,623 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:43:00,166 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-16 23:43:01,019 autoreload Watching for file changes with StatReloader
+INFO 2024-11-16 23:43:02,512 autoreload C:\Users\Acer\Desktop\mini_project\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-16 23:43:03,330 autoreload Watching for file changes with StatReloader
