@@ -1,4 +1,3 @@
-# attendance/models.py
 from django.db import models
 from students.models import Student
 from courses.models import Course

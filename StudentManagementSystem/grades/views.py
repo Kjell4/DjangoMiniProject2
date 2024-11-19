@@ -1,4 +1,3 @@
-# grades/views.py
 from rest_framework import viewsets
 from .models import Grade
 from .serializers import GradeSerializer
@@ -17,8 +16,8 @@ class GradeViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action in ['create', 'update', 'destroy']:
-            return [IsAuthenticated(), IsTeacher()]  # Преподаватели могут редактировать оценки
-        return [IsAuthenticated(), IsAdmin()]  # Администраторы могут редактировать любые записи
+            return [IsAuthenticated(), IsTeacher()]
+        return [IsAuthenticated(), IsAdmin()] 
     
 logger = logging.getLogger('django')
 
@@ -43,7 +42,6 @@ class UpdateGradeView(APIView):
         course_id = request.data.get('course_id')
         grade = request.data.get('grade')
         
-        # Обновление или создание записи о оценке
         grade_record, created = Grade.objects.update_or_create(
             student_id=student, course_id=course_id,
             defaults={'grade': grade}

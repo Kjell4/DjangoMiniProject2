@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',  # DRF
-    'djoser',          # Authentication
+    'rest_framework',  
+    'djoser',          
     'rest_framework.authtoken',
     'django_celery_beat',
     'drf_yasg',
@@ -143,7 +143,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10  # Настроим количество объектов на странице
+    'PAGE_SIZE': 10 
 }
 
 SIMPLE_JWT = {
@@ -162,13 +162,13 @@ SIMPLE_JWT = {
 
 DJOSER = {
     'SERIALIZERS': {
-        'user_create': 'users.serializers.UserCreateSerializer',  # Это ваш сериализатор для создания пользователей
-        'user': 'users.serializers.UserSerializer',  # Это сериализатор для отображения информации о пользователе
+        'user_create': 'users.serializers.UserCreateSerializer',  
+        'user': 'users.serializers.UserSerializer',  
     },
     'USER_CREATE_PASSWORD_RETYPE': True,
     'USER_PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
     'USER_LOGIN_FIELD': 'email',
-    'SEND_ACTIVATION_EMAIL': False,  # Отключаем активацию через email для простоты
+    'SEND_ACTIVATION_EMAIL': False,  
 }
 
 AUTHENTICATION_CLASSES = [
@@ -178,11 +178,11 @@ AUTHENTICATION_CLASSES = [
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',  # Redis сервер, база данных 1
+        'LOCATION': 'redis://127.0.0.1:6379/1',  
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         },
-        'TIMEOUT': 60 * 15,  # Время жизни кеша (15 минут)
+        'TIMEOUT': 60 * 15,  
     }
 }
 
@@ -208,7 +208,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'project_logs.log',  # Путь к файлу логов
+            'filename': 'project_logs.log',  
             'formatter': 'verbose',
         },
     },
@@ -239,11 +239,11 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_BEAT_SCHEDULE = {
     'send_daily_report': {
         'task': 'notifications.tasks.send_daily_report',
-        'schedule': crontab(minute=0, hour=9),  # Каждый день в 9 утра
+        'schedule': crontab(minute=0, hour=9), 
     },
     'send_weekly_performance_report': {
         'task': 'notifications.tasks.send_performance_report',
-        'schedule': crontab(minute=0, hour=9, day_of_week=1),  # Каждое понедельник в 9 утра
+        'schedule': crontab(minute=0, hour=9, day_of_week=1), 
     },
 }
 

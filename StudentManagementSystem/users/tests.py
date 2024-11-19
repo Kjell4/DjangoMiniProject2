@@ -1,11 +1,9 @@
-# users/tests.py
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.contrib.auth import get_user_model
 
 class RoleBasedPermissionsTestCase(APITestCase):
     def setUp(self):
-        # Создание пользователей с разными ролями
         self.admin = get_user_model().objects.create_user(
             username="admin", email="admin@example.com", password="adminpass", role="admin"
         )
@@ -29,4 +27,4 @@ class RoleBasedPermissionsTestCase(APITestCase):
     def test_student_access(self):
         self.client.login(username="student", password="studentpass")
         response = self.client.get('/api/courses/')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)  # Студент не должен иметь доступ
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)  

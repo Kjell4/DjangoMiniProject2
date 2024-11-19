@@ -1,4 +1,3 @@
-# grades/serializers.py
 from rest_framework import serializers
 from StudentManagementSystem.courses.serializers import CourseSerializer
 from StudentManagementSystem.students.serializers import StudentSerializer

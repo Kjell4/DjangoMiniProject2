@@ -49,14 +49,14 @@ class CourseViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action in ['create', 'update', 'destroy']:
-            return [IsAuthenticated(), IsTeacher()]  # Преподаватели могут создавать и обновлять
-        return [IsAuthenticated()]  # Все могут просматривать курсы
+            return [IsAuthenticated(), IsTeacher()]  
+        return [IsAuthenticated()] 
     
     def perform_update(self, serializer):
         course = serializer.save()
         
-        # Очищаем кеш для списка курсов
-        cache.delete('courses_list')  # Удаляем кеш для списка курсов
+       
+        cache.delete('courses_list')  
 
     @swagger_auto_schema(
         operation_summary="List Courses",
@@ -65,17 +65,17 @@ class CourseViewSet(viewsets.ModelViewSet):
     )
 
     def list(self, request, *args, **kwargs):
-        # Проверяем, есть ли курсы в кеше
+       
         cached_courses = cache.get('courses_list')
 
         if cached_courses:
-            return Response(cached_courses)  # Возвращаем данные из кеша
+            return Response(cached_courses) 
 
-        # Если нет, запрашиваем из базы данных
-        courses = Course.objects.all()  # Здесь можно добавить фильтрацию
+      
+        courses = Course.objects.all()  
         serialized_courses = CourseSerializer(courses, many=True).data
 
-        # Кешируем результат на 15 минут
+        
         cache.set('courses_list', serialized_courses, timeout=60*15)
         
         return Response(serialized_courses)
@@ -85,13 +85,13 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
     serializer_class = EnrollmentSerializer
 
     def perform_create(self, serializer):
-        student = self.request.user.student_profile  # Получаем профиль студента из текущего пользователя
+        student = self.request.user.student_profile 
         course = serializer.validated_data['course']
         serializer.save(student=student)
 
     def get_permissions(self):
         if self.action in ['create', 'update', 'destroy']:
-            return [IsAuthenticated()]  # Студенты могут записываться на курсы, преподаватели могут редактировать зачисления
+            return [IsAuthenticated()] 
         return [IsAuthenticated()]
 
 class CourseFilter(django_filters.FilterSet):
@@ -121,9 +121,8 @@ class EnrollStudentView(APIView):
     def post(self, request, *args, **kwargs):
         course_id = request.data.get('course_id')
         course = Course.objects.get(id=course_id)
-        student = request.user  # предполагаем, что запрос делает авторизованный студент
+        student = request.user  
 
-        # Зачисление студента на курс
         enrollment = Enrollment.objects.create(course=course, student=student)
         logger.info(f'{student.email} enrolled in course: {course.name}')
         return Response({"message": "Successfully enrolled"}, status=201)
@@ -134,7 +133,6 @@ def get_courses():
         logger.info('Cache hit for courses list')
     else:
         logger.info('Cache miss for courses list')
-        # Получаем курсы из базы данных
         courses = Course.objects.all()
-        cache.set('courses_list', courses, timeout=60*15)  # Кешируем на 15 минут
+        cache.set('courses_list', courses, timeout=60*15) 
     return cached_courses or courses

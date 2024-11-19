@@ -1,4 +1,3 @@
-# courses/serializers.py
 from rest_framework import serializers
 from students.serializers import StudentSerializer
 from .models import Course, Enrollment

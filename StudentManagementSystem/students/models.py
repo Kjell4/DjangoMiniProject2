@@ -1,8 +1,7 @@
-# students/models.py
 from django.db import models
 from django.contrib.auth import get_user_model
 
-User = get_user_model()  # Используем модель пользователя, которую вы настроили ранее.
+User = get_user_model() 
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='student_profile')

@@ -16,8 +16,8 @@ class AttendanceViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action in ['create', 'update', 'destroy']:
-            return [IsAuthenticated(), IsTeacher()]  # Преподаватели могут редактировать посещаемость
-        return [IsAuthenticated(), IsAdmin()]  # Администраторы имеют полный доступ
+            return [IsAuthenticated(), IsTeacher()]  
+        return [IsAuthenticated(), IsAdmin()]  
 
 logger = logging.getLogger('django')
 
@@ -37,11 +37,10 @@ class MarkAttendanceView(APIView):
     )
 
     def post(self, request, *args, **kwargs):
-        student = request.user  # Авторизованный студент
+        student = request.user  
         course_id = request.data.get('course_id')
         status = request.data.get('status')
 
-        # Создаем или обновляем запись о посещаемости
         attendance, created = Attendance.objects.update_or_create(
             student=student, course_id=course_id,
             defaults={'status': status}

@@ -1,4 +1,3 @@
-# students/serializers.py
 from rest_framework import serializers
 from attendance.serializers import AttendanceSerializer
 from courses.serializers import CourseSerializer
